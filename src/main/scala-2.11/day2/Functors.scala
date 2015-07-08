@@ -8,21 +8,21 @@ import scalaz.syntax.Ops
  * Created by haha on 2015/6/19.
  */
 
-trait Functor[F[_]] { self =>
-  def map[A, B](fa: F[A])(f: A => B): F[B]
-}
-
-trait FunctorOps[F[_], A] extends Ops[F[A]] {
-  implicit def F: Functor[F]
-  import scalaz.Leibniz.===
-  final def map[B](f: A => B): F[B] = F.map(self)(f)
-}
-
-trait Applicative[F[_]] extends Apply[F] { self =>
-  def point[A](a: => A): F[A]
-  /** alias for `point` */
-  def pure[A](a: => A): F[A] = point(a)
-}
+//trait Functor[F[_]] { self =>
+//  def map[A, B](fa: F[A])(f: A => B): F[B]
+//}
+//
+//trait FunctorOps[F[_], A] extends Ops[F[A]] {
+//  implicit def F: Functor[F]
+//  import scalaz.Leibniz.===
+//  final def map[B](f: A => B): F[B] = F.map(self)(f)
+//}
+//
+//trait Applicative[F[_]] extends Apply[F] { self =>
+//  def point[A](a: => A): F[A]
+//  /** alias for `point` */
+//  def pure[A](a: => A): F[A] = point(a)
+//}
 
 object Functors {
 
