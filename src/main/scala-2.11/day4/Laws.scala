@@ -43,8 +43,9 @@ object Laws {
     //  }
     1 * 2 assert_=== 2
     2 * 1 assert_=== 2
-    (Monoid[Int @@ Tags.Multiplication].zero |+| Tags.Multiplication(2)) assert_=== 2
-    (Tags.Multiplication(2) |+| Monoid[Int @@ Tags.Multiplication].zero) assert_=== 2
+    // following contains errors!
+//    (Monoid[Int @@ Tags.Multiplication].zero |+| Tags.Multiplication(2)) assert_=== 2
+//    (Tags.Multiplication(2) |+| Monoid[Int @@ Tags.Multiplication].zero) assert_=== 2
     // monoid.laws[Int @@ Tags.Multiplication].check
 
     // if we don't if the contents are monoids, discard the second value and keep the first one
