@@ -32,7 +32,7 @@ object States {
     // out manually passing around the Stack values
 
     // State monad encapsulates functions that takes a state and returns a pair of a value and a state.
-    // So get in the context of state simply means to retreive the state into the value.
+    // So get in the context of state simply means to retrieve the state into the value.
     // And put in this context means to put some value into the state.
 
     def stackyStack: State[Stack, Unit] = for {

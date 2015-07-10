@@ -8,7 +8,7 @@ import Scalaz._
  */
 object EithersYValidations {
   def main(args: Array[String]) {
-    // Scalaz¡¯s \/ assumes that you¡¯d mostly want right projection.
+    // Scalaz's \/ assumes that youï¿½ï¿½d mostly want right projection.
     1.right[String] //scalaz.\/[String,Int] = \/-(1)
     "error".left[Int] //scalaz.\/[String,Int] = -\/(error)
 
