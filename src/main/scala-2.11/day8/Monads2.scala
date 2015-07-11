@@ -64,8 +64,8 @@ object Monads2 {
     addStuff(3) //scalaz.Id.Id[Int] = 19
 
     // Making monads
-    case class Prob[A](list: List[(A, Double)])
     case object Prob extends ProbInstances
+    case class Prob[A] (list: List[(A, Double)]) extends ProbInstances
     trait ProbInstances {
       // functor monad
       implicit val probInstance = new Functor[Prob] with Monad[Prob] {
