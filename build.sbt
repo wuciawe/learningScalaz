@@ -9,12 +9,13 @@ libraryDependencies ++= {
   Seq(
     "org.scalaz" %% "scalaz-core" % scalazVersion,
     "org.scalaz" %% "scalaz-effect" % scalazVersion,
+    "org.scalaz" %% "scalaz-iteratee" % scalazVersion,
     "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
     "org.scalaz" %% "scalaz-scalacheck-binding" % scalazVersion % "test"
   )
 }
 
-scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-language:postfixOps", "-language:higherKinds")
+scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-language:postfixOps", "-language:higherKinds", "-deprecation")
 
 initialCommands in console := "import scalaz._, Scalaz._"
 

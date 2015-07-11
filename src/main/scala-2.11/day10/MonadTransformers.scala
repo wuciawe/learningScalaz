@@ -53,7 +53,8 @@ object MonadTransformers {
     // a monad transformer on top of our combined monad,
     // to give a new monad, and in fact this is a common
     // thing to do.
-    type StateTReaderTOption[C, S, A] = StateT[({type l[+X] = ReaderTOption[C, X]})#l, S, A]
+//    type StateTReaderTOption[C, S, A] = StateT[({type l[+X] = ReaderTOption[C, X]})#l, S, A]
+    type StateTReaderTOption[C, S, A] = StateT[({type l[X] = ReaderTOption[C, X]})#l, S, A]
     object StateTReaderTOption extends StateTInstances with StateTFunctions {
       def apply[C, S, A](f: S => (S, A)) = new StateT[({type l[X] = ReaderTOption[C, X]})#l, S, A] {
         def apply(s: S) = f(s).point[({type l[X] = ReaderTOption[C, X]})#l]
@@ -66,9 +67,9 @@ object MonadTransformers {
 
     type Stack = List[Int]
     type Config = Map[String, String]
-    val pop = StateTReaderTOption[Config, Stack, Int] {
-      case x :: xs => (xs, x)
-    }
+//    val pop = StateTReaderTOption[Config, Stack, Int] {
+//      case x :: xs => (xs, x)
+//    }
 
     val pop: StateTReaderTOption[Config, Stack, Int] = {
       import StateTReaderTOption.{get, put}
